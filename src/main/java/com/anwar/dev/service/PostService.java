@@ -5,7 +5,6 @@
  */
 package com.anwar.dev.service;
 
-import com.anwar.dev.entity.Comment;
 import com.anwar.dev.entity.Post;
 import com.anwar.dev.repository.PostRepository;
 import java.util.List;

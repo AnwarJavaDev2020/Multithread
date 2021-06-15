@@ -5,9 +5,7 @@
  */
 package com.anwar.dev.repository;
 
-import com.anwar.dev.entity.Comment;
 import com.anwar.dev.entity.Post;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

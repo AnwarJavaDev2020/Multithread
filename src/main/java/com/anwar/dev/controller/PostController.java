@@ -38,6 +38,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Developer1
  */
 @RestController
+ @CrossOrigin(origins = "http://localhost:4200")// to fix CORS error in Angular  | CORS allow headers
 public class PostController {
 
     public static final String REST_SERVICE_URI = "https://jsonplaceholder.typicode.com/";
@@ -52,7 +53,7 @@ public class PostController {
     // This method access the provided API link and get post data first
     // then looping thruogh and get comment by using post ID from provided API link
     // and then all the post and comment to the database and return all saved data
-    @CrossOrigin(origins = "http://localhost:51175")// to fix CORS error in Angular  | CORS allow headers
+   
     @RequestMapping(value = "/getPostFromAPI", method = RequestMethod.GET)
     public List<Post> getPostFromAPI() throws InterruptedException, ExecutionException, Exception {
         //this log show whish tread is working
@@ -92,13 +93,12 @@ public class PostController {
         return postService.findById(id).get();
     }
 
-    @CrossOrigin(origins = "http://localhost:51175")// to fix CORS error in Angular  | CORS allow headers
     @GetMapping(value = "/posts", produces = "application/json")
 //    @Cacheable(cacheNames="Posts",key="'Post-'+#id") // this is for all data caching in redis
     public List<Post> findAllPosts() throws InterruptedException, ExecutionException {
         return postService.findAllPost().get();
     }
-    @CrossOrigin(origins = "http://localhost:51175")// to fix CORS error in Angular  | CORS allow headers
+    
     @GetMapping(value = "/posts/{id}/comments", produces = "application/json")
 //    @Cacheable(cacheNames="Posts",key="'Post-'+#id") // this is for all data caching in redis
     public List<Comment> findCommentsByPostId(@PathVariable long id) throws InterruptedException, ExecutionException {
